@@ -1,0 +1,46 @@
+<!-- Main page for the better beluga, made in vanilla js -->
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic stling and whatnot -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beluga - but better</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Title header -->
+    <h1>Better Beluga</h1>
+
+    <div class="container">
+        <!-- File upload for the original image -->
+        <div class="box">
+            <h2>Original Image</h2>
+            <div class="drop-area" id="drop-area-1">
+                <p>Drag and drop an image here, or click to select one</p>
+                <input type="file" id="fileInput-1" accept="image/*" style="display: none;">
+            </div>
+            <img id="preview-1" alt="Image Preview 1">
+        </div>
+        
+        <div class="box">
+            <!-- File upload for the image to detect change in-->
+            <h2>Potential Changed image</h2>
+            <div class="drop-area" id="drop-area-2">
+                <p>Drag and drop an image here, or click to select one</p>
+                <input type="file" id="fileInput-2" accept="image/*" style="display: none;">
+            </div>
+            <img id="preview-2" alt="Image Preview 2">
+        </div>
+
+        <!-- Call the script to enable dropins -->
+        <script id="app-script" src="scripts/dropin-display.js" preview="preview-1,preview-2" display="true"></script>
+
+        <!-- Submit button to redirect to next page -->
+        <button id="submit-button">Submit</button>
+        <script id="submit-handler" src="scripts/submit-handler.js"></script>
+
+    </div>
+</body>
+</html>

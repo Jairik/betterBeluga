@@ -9,9 +9,44 @@
     {
         "date": "8/16/25",
         "start": "9:45am",
+        "end": "10:55am",
+        "total-time": "70 mins",
+        "note": "Brushing up on fastAPI, defining some backend processing and routes, small frontend updates"
+    },
+    {
+        "date": "",
+        "start": "",
         "end": "",
         "total-time": "",
-        "note": "Brushing up on fastAPI, defining backend responses, small frontend updates"
+        "note": ""
+    },
+    {
+        "date": "",
+        "start": "",
+        "end": "",
+        "total-time": "",
+        "note": ""
+    },
+    {
+        "date": "",
+        "start": "",
+        "end": "",
+        "total-time": "",
+        "note": ""
+    },
+    {
+        "date": "",
+        "start": "",
+        "end": "",
+        "total-time": "",
+        "note": ""
+    },
+    {
+        "date": "",
+        "start": "",
+        "end": "",
+        "total-time": "",
+        "note": ""
     }
 
 

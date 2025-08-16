@@ -9,8 +9,8 @@
     {
         "date": "8/16/25",
         "start": "9:45am",
-        "end": "10:55am",
-        "total-time": "70 mins",
+        "end": "11:30am",
+        "total-time": "105 mins",
         "note": "Brushing up on fastAPI, defining some backend processing and routes, small frontend updates"
     },
     {

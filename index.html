@@ -11,7 +11,12 @@
 </head>
 <body>
     <!-- Title header -->
-    <h1>Better Beluga</h1>
+    <div class="container-header">
+        <h1>Better Beluga</h1>
+        <a href="https://github.com/Jairik/betterBeluga" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width: 30px; height: 30px; vertical-align: middle;">
+        </a>
+    </div>
 
     <!-- Uploading/Previewing images-->
     <div class="container">
@@ -36,7 +41,12 @@
         </div>
 
         <!-- Call the script to enable dropins -->
-        <script id="app-script" src="scripts/dropin-display.js" preview="preview-1,preview-2" display="true"></script>
+        <script 
+            id="app-script" 
+            src="scripts/dropin-display.js" 
+            data-pairs="drop-area-1:fileInput-1:preview-1,drop-area-2:fileInput-2:preview-2"
+            data-display="true">
+        </script>
     </div>
 
     <!-- Submit button - compare as bytestrings or image processing -->

@@ -1,47 +1,61 @@
 /** Image dropper with display feature */
-const dropArea = document.getElementById('drop-area');
-// Get the arguments from the html file
-    const args = document.getElementById("app-script");
-    const fileInputID = window.args.fileInput;
-    if(window.args.display === "true"){
-        const previewID = window.args.preview;
-    }
-    const fileInput = document.getElementById(fileInputID);
-    const preview = document.getElementById(previewID);
+(function () {
 
-    // Onlick listener to upload file
+    // Read in arguments/ids from the tags
+    const scriptElement = document.getElementById("app-script");
+    const dropId = scriptElement?.dataset.drop;
+    const fileInputId = scriptElement?.dataset.fileInput;
+    const display = (scriptElement?.dataset.display || "true") === "true";
+    const previewId = display ? scriptElement?.dataset.preview : undefined;
+
+    // Resolve the elements from the extracted ids
+    const dropArea = dropId ? document.getElementById(dropId) : null; 
+    const fileInput = fileInputId ? document.getElementById(fileInputId) : null;
+    const preview = previewId ? document.getElementById(previewId) : null;
+
+    if (!dropArea || !fileInput){
+        console.warn("<dropin-display> Missing drop area or file input element");
+        return;
+    }
+
+    // Onclick listener to upload file
     dropArea.addEventListener('click', () => fileInput.click());
 
-    // Listener for dragging files into box
-    dropArea.addEventListener('dragover', (event) => {
-        event.preventDefault();
-        dropArea.classList.add('hover');
-    });
-    dropArea.addEventListener('dragleave', () => {
-        dropArea.classList.remove('hover');
-    });
-    dropArea.addEventListener('drop', (event) => {
-        event.preventDefault();
-        dropArea.classList.remove('hover');
-        const file = event.dataTransfer.files[0];
-        if (file && file.type.startsWith('image/')) {
-            displayImage(file);
-        }
-    });
+    // Listeners for drag & drop (visuals)
+    ["dragenter", "dragover"].forEach(evt => 
+        dropArea.addEventListener(evt, e => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropArea.classList.add("hover");
+        })
+    );
+    ["dragleave", "drop"].forEach(evt => 
+        dropArea.addEventListener(evt, e => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropArea.classList.remove("hover");
+        })
+    );
 
-    // Display the image, if the valid 
-    if(preview){
-        fileInput.addEventListener('change', () => {
-            const file = fileInput.files[0];
-            if (file && file.type.startsWith('image/')) {
-                displayImage(file);
-            }
-        });
-    }
+    // Handle dropped files
+    dropArea.addEventListener("drop", e => {
+        const file = e.dataTransfer?.files?.[0];
+        if (file && file.type.startsWith("image/")){ displayImage(file); }
+    })
+
+    // Handle chooser
+    fileInput.addEventListener("change", () => {
+        const file = fileInput.files?.[0];
+        if(file && file.type.startsWith("image/")){ displayImage(file); }
+    })
+
+    // Display the image
     function displayImage(file) {
+        if (!preview){ return; }  // Skip if no preview is selected
         const reader = new FileReader();
         reader.onload = (event) => {
             preview.src = event.target.result;
         };
         reader.readAsDataURL(file);
     }
+})();

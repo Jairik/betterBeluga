@@ -40,3 +40,10 @@ img {
     justify-content: flex-start; /* Align items to the left */
     margin: 0 auto;
 }
+.container-header {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    justify-content: center;
+    margin: 0 auto;
+}

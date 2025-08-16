@@ -4,6 +4,13 @@
     "end": "12:20pm",
     "total-time": "65 mins",
     "note": "Initial setup of project"
+},
+{
+    "date": "8/16/25",
+    "start": "9:45am",
+    "end": "",
+    "total-time": "",
+    "note": "Brushing up on fastAPI, defining backend responses"
 }
 
 

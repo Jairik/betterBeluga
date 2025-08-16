@@ -32,3 +32,11 @@ img {
     padding: 10px; /* Enable padding between the two */
     background: lightgray; /* Fixed background for now */
 }
+.container-buttons {
+    display: flex;
+    flex-direction: row; /* Elements display as left to right */
+    gap: 10px; /* A little between elements */
+    max-width: 80%;
+    justify-content: flex-start; /* Align items to the left */
+    margin: 0 auto;
+}

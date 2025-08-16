@@ -13,6 +13,7 @@
     <!-- Title header -->
     <h1>Better Beluga</h1>
 
+    <!-- Uploading/Previewing images-->
     <div class="container">
         <!-- File upload for the original image -->
         <div class="box">
@@ -21,7 +22,7 @@
                 <p>Drag and drop an image here, or click to select one</p>
                 <input type="file" id="fileInput-1" accept="image/*" style="display: none;">
             </div>
-            <img id="preview-1" alt="Image Preview 1">
+            <img id="preview-1" alt="Old Image Preview">
         </div>
         
         <div class="box">
@@ -31,16 +32,26 @@
                 <p>Drag and drop an image here, or click to select one</p>
                 <input type="file" id="fileInput-2" accept="image/*" style="display: none;">
             </div>
-            <img id="preview-2" alt="Image Preview 2">
+            <img id="preview-2" alt="New Image Preview">
         </div>
 
         <!-- Call the script to enable dropins -->
         <script id="app-script" src="scripts/dropin-display.js" preview="preview-1,preview-2" display="true"></script>
-
-        <!-- Submit button to redirect to next page -->
-        <button id="submit-button">Submit</button>
-        <script id="submit-handler" src="scripts/submit-handler.js"></script>
-
     </div>
+
+    <!-- Submit button - compare as bytestrings or image processing -->
+    <div>
+        <h4>Process using: </h4>
+    </div> 
+    <div class="container-buttons">
+        <div class="box">
+            <button id="process-bytestring">Bytestring Comparison (Fast)</button>
+        </div>
+        <div class="box">
+            <button id="process-image-detection">Image Detection (Quality)</button>
+        </div>
+        <!-- Add onclick handlers to each button -->
+        <script id="submit-handler" src="scripts/submit-handler.js"></script>
+     </div>
 </body>
 </html>
